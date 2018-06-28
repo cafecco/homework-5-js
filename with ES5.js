@@ -22,9 +22,9 @@ Hamburger.prototype.getStuffing = function() {
 }
 
 Hamburger.prototype.calculatePrice = function() {
-	const STUFFING_CHEESE = 10;
-	const STUFFING_SALAD = 20;
-	const STUFFING_POTATO = 15;
+	var STUFFING_CHEESE = 10;
+	var STUFFING_SALAD = 20;
+	var STUFFING_POTATO = 15;
 
 	switch (this.size) {
 		case 'SIZE_SMALL':
@@ -54,9 +54,9 @@ Hamburger.prototype.calculatePrice = function() {
 }
 
 Hamburger.prototype.calculateCalories = function() {
-	const STUFFING_CHEESE = 20;
-	const STUFFING_SALAD = 5;
-	const STUFFING_POTATO = 10;
+	var STUFFING_CHEESE = 20;
+	var STUFFING_SALAD = 5;
+	var STUFFING_POTATO = 10;
 
 	switch (this.size) {
 		case 'SIZE_SMALL':
@@ -94,9 +94,9 @@ Salad.prototype = Object.create(Menu.prototype);
 Salad.prototype.constructor = Salad;
 
 Salad.prototype.calculatePrice = function() {
-	const CESAR_BASIC_PRICE = 100;
-	const OLIVYE_BASIC_PRICE = 50;
-	const BASIC_WEIGHT = 100;
+	var CESAR_BASIC_PRICE = 100;
+	var OLIVYE_BASIC_PRICE = 50;
+	var BASIC_WEIGHT = 100;
 
 	switch (this.name) {
 		case 'CESAR':
@@ -112,9 +112,9 @@ Salad.prototype.calculatePrice = function() {
 }
 
 Salad.prototype.calculateCalories = function() {
-	const CESAR_CALORIES = 20;
-	const OLIVYE_CALORIES = 80;
-	const BASIC_WEIGHT = 100;
+	var CESAR_CALORIES = 20;
+	var OLIVYE_CALORIES = 80;
+	var BASIC_WEIGHT = 100;
 
 	switch (this.name) {
 		case 'CESAR':
@@ -137,8 +137,8 @@ Drink.prototype = Object.create(Menu.prototype);
 Drink.prototype.constructor = Drink;
 
 Drink.prototype.calculatePrice = function() {
-	const COLA_PRICE = 50;
-	const COFFEE_PRICE = 80;
+	var COLA_PRICE = 50;
+	var COFFEE_PRICE = 80;
 
 	switch (this.name) {
 		case 'COLA':
@@ -154,8 +154,8 @@ Drink.prototype.calculatePrice = function() {
 }
 
 Drink.prototype.calculateCalories = function() {
-	const COLA_CALORIES = 40;
-	const COFFEE_CALORIES = 20;
+	var COLA_CALORIES = 40;
+	var COFFEE_CALORIES = 20;
 
 	switch (this.name) {
 		case 'COLA':
