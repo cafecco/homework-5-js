@@ -22,16 +22,19 @@ Hamburger.prototype.getStuffing = function() {
 }
 
 Hamburger.prototype.calculatePrice = function() {
-	var STUFFING_CHEESE = 10;
-	var STUFFING_SALAD = 20;
-	var STUFFING_POTATO = 15;
+	const STUFFING_CHEESE = 10;
+	const STUFFING_SALAD = 20;
+	const STUFFING_POTATO = 15;
+
+	const SIZE_SMALL_PRICE = 50;
+	const SIZE_BIG_PRICE = 100;
 
 	switch (this.size) {
 		case 'SIZE_SMALL':
-			this.price = 50;
+			this.price = SIZE_SMALL_PRICE;
 			break;
 		case 'SIZE_BIG':
-			this.price = 100;
+			this.price = SIZE_BIG_PRICE;
 			break;
 		default: 
 			console.log('No size chosen');
@@ -54,16 +57,19 @@ Hamburger.prototype.calculatePrice = function() {
 }
 
 Hamburger.prototype.calculateCalories = function() {
-	var STUFFING_CHEESE = 20;
-	var STUFFING_SALAD = 5;
-	var STUFFING_POTATO = 10;
+	const STUFFING_CHEESE = 20;
+	const STUFFING_SALAD = 5;
+	const STUFFING_POTATO = 10;
+
+	const SIZE_SMALL_CALORIES = 20;
+	const SIZE_BIG_CALORIES = 40;
 
 	switch (this.size) {
 		case 'SIZE_SMALL':
-			this.calories = 20;
+			this.calories = SIZE_SMALL_CALORIES;
 			break;
 		case 'SIZE_BIG':
-			this.calories = 40;
+			this.calories = SIZE_BIG_CALORIES;
 			break;
 		default: 
 			console.log('No size chosen');
@@ -94,9 +100,9 @@ Salad.prototype = Object.create(Menu.prototype);
 Salad.prototype.constructor = Salad;
 
 Salad.prototype.calculatePrice = function() {
-	var CESAR_BASIC_PRICE = 100;
-	var OLIVYE_BASIC_PRICE = 50;
-	var BASIC_WEIGHT = 100;
+	const CESAR_BASIC_PRICE = 100;
+	const OLIVYE_BASIC_PRICE = 50;
+	const BASIC_WEIGHT = 100;
 
 	switch (this.name) {
 		case 'CESAR':
@@ -112,9 +118,9 @@ Salad.prototype.calculatePrice = function() {
 }
 
 Salad.prototype.calculateCalories = function() {
-	var CESAR_CALORIES = 20;
-	var OLIVYE_CALORIES = 80;
-	var BASIC_WEIGHT = 100;
+	const CESAR_CALORIES = 20;
+	const OLIVYE_CALORIES = 80;
+	const BASIC_WEIGHT = 100;
 
 	switch (this.name) {
 		case 'CESAR':
@@ -137,8 +143,8 @@ Drink.prototype = Object.create(Menu.prototype);
 Drink.prototype.constructor = Drink;
 
 Drink.prototype.calculatePrice = function() {
-	var COLA_PRICE = 50;
-	var COFFEE_PRICE = 80;
+	const COLA_PRICE = 50;
+	const COFFEE_PRICE = 80;
 
 	switch (this.name) {
 		case 'COLA':
@@ -154,8 +160,8 @@ Drink.prototype.calculatePrice = function() {
 }
 
 Drink.prototype.calculateCalories = function() {
-	var COLA_CALORIES = 40;
-	var COFFEE_CALORIES = 20;
+	const COLA_CALORIES = 40;
+	const COFFEE_CALORIES = 20;
 
 	switch (this.name) {
 		case 'COLA':
@@ -194,7 +200,7 @@ Order.prototype.addItems = function() {
 Order.prototype.deleteItem = function(needless_item) {
 	for (let i = 0; i < this.items.length; i++) {
 		if (needless_item == this.items[i]) {
-			this.items.splice(i,1)
+			this.items.splice(i, 1)
 		}
 	}
 }
@@ -203,14 +209,14 @@ Order.prototype.deleteSomeItems = function() {
 	for (let i = 0; i < arguments.length; i++) {
 		for (let j = 0; j < this.items.length; j++){
 			if (this.items[j] == arguments[i]) {
-				this.items.splice(j,1);
+				this.items.splice(j, 1);
 			}
 		}
 	}
 }
 
 Order.prototype.calculateOrderPrice = function() {
-	var order_price = 0; 
+	const order_price = 0; 
 	for (let i = 0; i < this.items.length; i++) {
 		order_price += this.items[i].calculatePrice();
 	}
@@ -218,7 +224,7 @@ Order.prototype.calculateOrderPrice = function() {
 }
 
 Order.prototype.calculateOrderCalories = function() {
-	var order_calories = 0;
+	const order_calories = 0;
 	for (let i = 0; i < this.items.length; i++) {
 		order_calories += this.items[i].calculateCalories();
 	}
@@ -230,14 +236,14 @@ Order.prototype.confirmedOrder = function() {
 	console.log('Order is confirmed');	
 }
 
-var hamburger_1 = new Hamburger('SIZE_BIG', 'STUFFING_SALAD'); 
-var hamburger_2 = new Hamburger('SIZE_SMALL', 'STUFFING_CHEESE'); 
-var olivye = new Salad('OLIVYE', 300);
-var cesar = new Salad('CESAR', 150);
-var cola = new Drink('COLA');
-var coffee = new Drink('COFFEE');
+const hamburger_1 = new Hamburger('SIZE_BIG', 'STUFFING_SALAD'); 
+const hamburger_2 = new Hamburger('SIZE_SMALL', 'STUFFING_CHEESE'); 
+const olivye = new Salad('OLIVYE', 300);
+const cesar = new Salad('CESAR', 150);
+const cola = new Drink('COLA');
+const coffee = new Drink('COFFEE');
 
-var order = new Order(hamburger_1, hamburger_2, olivye);
+const order = new Order(hamburger_1, hamburger_2, olivye);
 order.calculateOrderCalories();
 order.addItems(cesar, cola, coffee);
 order.calculateOrderPrice();
